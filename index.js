@@ -5,6 +5,10 @@ var io = require("socket.io")(http);
 
 io.on("connection", (socket) => {
 
+    socket.on("disconnect", () => {
+        console.log("X desconectou: " + socket.id);
+    })
+
     socket.on("boasvindas", (data) => {
         console.log("Executando evento de boas vindas");
         console.log(data);
